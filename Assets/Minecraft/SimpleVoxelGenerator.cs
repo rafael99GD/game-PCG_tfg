@@ -10,8 +10,8 @@ public class SimpleVoxelGenerator : MonoBehaviour
     public float scale = 0.1f;
 
     [Header("Sistema de Semillas (Seed)")]
-    public int seed = 0;              // El número mágico que define el mundo
-    public bool useRandomSeed = true; // Si es true, ignora el número de arriba y elige uno al azar
+    public int seed = 0;                  // El número mágico que define el mundo
+    public bool useRandomSeed = true;     // Si es true, ignora el número de arriba y elige uno al azar
 
     [Header("Debug & TFG Demo")]
     [Tooltip("Si está activo, borra las caras ocultas. Si no, dibuja todos los bloques completos.")]
@@ -29,20 +29,13 @@ public class SimpleVoxelGenerator : MonoBehaviour
 
     private void Start()
     {
-        // 1. Configuración de la Semilla
+        // Al arrancar, si es aleatorio, elegimos semilla propia
         if (useRandomSeed)
         {
             seed = Random.Range(-100000, 100000);
         }
 
-        // Usamos System.Random para que sea determinista (si pones seed 5, siempre sale lo mismo)
-        System.Random prng = new System.Random(seed);
-        seedOffsetX = prng.Next(-100000, 100000);
-        seedOffsetZ = prng.Next(-100000, 100000);
-
-        // 2. Generar
-        GenerateMapData();
-        GenerateMesh();
+        Regenerate(); // Llamamos a la función principal
     }
 
     private void OnValidate()
@@ -50,8 +43,21 @@ public class SimpleVoxelGenerator : MonoBehaviour
         // Permite cambiar el checkbox en tiempo real (Play Mode)
         if (mapData != null && Application.isPlaying)
         {
-            GenerateMesh();
+            GenerateMesh(); // Aquí solo regeneramos la malla visual, no los datos del ruido
         }
+    }
+
+    // --- NUEVO: Función Pública para regenerar desde fuera (WorldManager) ---
+    public void Regenerate()
+    {
+        // 1. Recalcular los offsets basados en la semilla actual
+        System.Random prng = new System.Random(seed);
+        seedOffsetX = prng.Next(-100000, 100000);
+        seedOffsetZ = prng.Next(-100000, 100000);
+
+        // 2. Generar datos y malla
+        GenerateMapData();
+        GenerateMesh();
     }
 
     void GenerateMapData()
@@ -103,18 +109,17 @@ public class SimpleVoxelGenerator : MonoBehaviour
         }
 
         Mesh mesh = new Mesh();
-        mesh.indexFormat = UnityEngine.Rendering.IndexFormat.UInt32; // Soporte para muchos vértices
+        mesh.indexFormat = UnityEngine.Rendering.IndexFormat.UInt32;
 
         mesh.vertices = vertices.ToArray();
         mesh.triangles = triangles.ToArray();
         mesh.uv = uvs.ToArray();
 
-        mesh.RecalculateNormals(); // Crucial para la luz
-        mesh.RecalculateBounds();  // Crucial para que no desaparezca al mover la cámara
+        mesh.RecalculateNormals();
+        mesh.RecalculateBounds();
 
         GetComponent<MeshFilter>().mesh = mesh;
 
-        // Actualizar colisionador si existe
         if (GetComponent<MeshCollider>())
             GetComponent<MeshCollider>().sharedMesh = mesh;
     }
@@ -150,7 +155,6 @@ public class SimpleVoxelGenerator : MonoBehaviour
         vertices.Add(position + GetVertexPos(direction, 2));
         vertices.Add(position + GetVertexPos(direction, 3));
 
-        // ORDEN DE TRIÁNGULOS CORREGIDO (Invertido para que se vea desde fuera)
         triangles.Add(vCount);
         triangles.Add(vCount + 2);
         triangles.Add(vCount + 1);
@@ -172,11 +176,8 @@ public class SimpleVoxelGenerator : MonoBehaviour
             new Vector3(0, 0, 1), new Vector3(0, 1, 1), new Vector3(1, 1, 1), new Vector3(1, 0, 1)
         };
 
-        // TABLAS CORREGIDAS PARA QUE LA TAPA SE VEA BIEN CON EL ORDEN INVERTIDO
         if (dir == Vector3.up) { int[] o = { 2, 6, 5, 1 }; return cubeCorners[o[index]]; }
         if (dir == Vector3.down) { int[] o = { 4, 7, 3, 0 }; return cubeCorners[o[index]]; }
-
-        // Lados estándar
         if (dir == Vector3.forward) { int[] o = { 4, 5, 6, 7 }; return cubeCorners[o[index]]; }
         if (dir == Vector3.back) { int[] o = { 3, 2, 1, 0 }; return cubeCorners[o[index]]; }
         if (dir == Vector3.right) { int[] o = { 3, 7, 6, 2 }; return cubeCorners[o[index]]; }

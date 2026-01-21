@@ -1,34 +1,54 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class WorldManager : MonoBehaviour
 {
-    [Header("Configuraci�n Global")]
+    [Header("Configuración Global")]
     public int globalSeed = 12345;
+
+    [Tooltip("Si está marcado, genera un mundo nuevo al azar al pulsar Play o G.\nSi está desmarcado, usa siempre el número escrito arriba.")]
     public bool randomSeedOnPlay = true;
 
-    [Header("Arrastra tus Chunks aqu�")]
+    [Header("Arrastra tus Chunks aquí")]
     public SimpleVoxelGenerator[] chunks;
 
-    // Usamos Awake para configurar todo ANTES de que los Chunks ejecuten su Start()
     void Awake()
     {
-        // 1. Si queremos aleatoriedad, generamos una semilla nueva
+        // Al iniciar el juego, generamos el mundo
+        GenerateNewWorld();
+    }
+
+    private void Update()
+    {
+        // Si pulsamos G, regeneramos según la configuración del checkbox
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            GenerateNewWorld();
+        }
+    }
+
+    void GenerateNewWorld()
+    {
+        // --- CORRECCIÓN AQUÍ ---
+
+        // 1. Solo cambiamos la semilla SI el checkbox está activado
         if (randomSeedOnPlay)
         {
             globalSeed = Random.Range(-100000, 100000);
-            Debug.Log("Semilla generada: " + globalSeed); // Para que sepas cu�l sali�
+            Debug.Log("Semilla Aleatoria Generada: " + globalSeed);
+        }
+        else
+        {
+            Debug.Log("Usando Semilla Fija: " + globalSeed);
         }
 
-        // 2. Inyectamos la semilla a todos los chunks
+        // 2. Inyectamos la semilla (sea nueva o fija) a todos los chunks
         foreach (var chunk in chunks)
         {
             if (chunk != null)
             {
-                chunk.useRandomSeed = false; // Importante: anulamos la decisi�n individual del chunk
-                chunk.seed = globalSeed;     // Le imponemos la semilla del Manager
-
-                // Opcional: Aseguramos que compartan escala para que encajen
-                // chunk.scale = 0.1f; 
+                chunk.useRandomSeed = false; // El Manager manda, anulamos el random individual
+                chunk.seed = globalSeed;     // Le pasamos el número
+                chunk.Regenerate();          // ¡Orden de reconstruir!
             }
         }
     }

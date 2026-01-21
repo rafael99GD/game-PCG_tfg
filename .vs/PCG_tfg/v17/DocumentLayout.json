@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\rafae\\Desktop\\Canary Games\\Juegos\\PCG_tfg\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7580D7B8-B7D7-EB1C-443B-FB7C50B5445A}|Assembly-CSharp.csproj|c:\\users\\rafae\\desktop\\canary games\\juegos\\pcg_tfg\\assets\\terraria\\terrariagenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7580D7B8-B7D7-EB1C-443B-FB7C50B5445A}|Assembly-CSharp.csproj|solutionrelative:assets\\terraria\\terrariagenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7580D7B8-B7D7-EB1C-443B-FB7C50B5445A}|Assembly-CSharp.csproj|C:\\Users\\rafae\\Desktop\\Canary Games\\Juegos\\PCG_tfg\\assets\\minecraft\\worldmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7580D7B8-B7D7-EB1C-443B-FB7C50B5445A}|Assembly-CSharp.csproj|c:\\users\\rafae\\desktop\\canary games\\juegos\\pcg_tfg\\assets\\minecraft\\worldmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7580D7B8-B7D7-EB1C-443B-FB7C50B5445A}|Assembly-CSharp.csproj|solutionrelative:assets\\minecraft\\worldmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7580D7B8-B7D7-EB1C-443B-FB7C50B5445A}|Assembly-CSharp.csproj|C:\\Users\\rafae\\Desktop\\Canary Games\\Juegos\\PCG_tfg\\assets\\minecraft\\simplevoxelgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7580D7B8-B7D7-EB1C-443B-FB7C50B5445A}|Assembly-CSharp.csproj|solutionrelative:assets\\minecraft\\simplevoxelgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7580D7B8-B7D7-EB1C-443B-FB7C50B5445A}|Assembly-CSharp.csproj|C:\\Users\\rafae\\Desktop\\Canary Games\\Juegos\\PCG_tfg\\assets\\terraria\\terrariagenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7580D7B8-B7D7-EB1C-443B-FB7C50B5445A}|Assembly-CSharp.csproj|solutionrelative:assets\\terraria\\terrariagenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,11 +22,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "TerrariaGenerator.cs",
               "DocumentMoniker": "C:\\Users\\rafae\\Desktop\\Canary Games\\Juegos\\PCG_tfg\\Assets\\Terraria\\TerrariaGenerator.cs",
               "RelativeDocumentMoniker": "Assets\\Terraria\\TerrariaGenerator.cs",
@@ -34,33 +34,33 @@
               "RelativeToolTip": "Assets\\Terraria\\TerrariaGenerator.cs",
               "ViewState": "AgIAAAsAAAAAAAAAAAAQwB0AAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-21T14:09:48.359Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-21T14:09:48.359Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "WorldManager.cs",
               "DocumentMoniker": "C:\\Users\\rafae\\Desktop\\Canary Games\\Juegos\\PCG_tfg\\Assets\\Minecraft\\WorldManager.cs",
               "RelativeDocumentMoniker": "Assets\\Minecraft\\WorldManager.cs",
               "ToolTip": "C:\\Users\\rafae\\Desktop\\Canary Games\\Juegos\\PCG_tfg\\Assets\\Minecraft\\WorldManager.cs",
               "RelativeToolTip": "Assets\\Minecraft\\WorldManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACgAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-21T13:45:15.197Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "SimpleVoxelGenerator.cs",
               "DocumentMoniker": "C:\\Users\\rafae\\Desktop\\Canary Games\\Juegos\\PCG_tfg\\Assets\\Minecraft\\SimpleVoxelGenerator.cs",
               "RelativeDocumentMoniker": "Assets\\Minecraft\\SimpleVoxelGenerator.cs",
               "ToolTip": "C:\\Users\\rafae\\Desktop\\Canary Games\\Juegos\\PCG_tfg\\Assets\\Minecraft\\SimpleVoxelGenerator.cs",
               "RelativeToolTip": "Assets\\Minecraft\\SimpleVoxelGenerator.cs",
-              "ViewState": "AgIAAI0AAAAAAAAAAAAcwLoAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAI4AAAAAAAAAAAAcwLsAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-21T13:32:05.289Z"
+              "WhenOpened": "2026-01-21T13:32:05.289Z",
+              "EditorCaption": ""
             }
           ]
         }

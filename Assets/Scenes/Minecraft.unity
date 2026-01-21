@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WorldManager
   globalSeed: 12345
-  randomSeedOnPlay: 0
+  randomSeedOnPlay: 1
   chunks:
   - {fileID: 1515591429}
   - {fileID: 743412795}
